@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмін-панель | EatEasy</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+<h1>Адмін-панель: Меню</h1>
+
+<section id="menu-section">
+    <h2>Поточне меню</h2>
+    <table id="menu-table" border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Опис</th>
+            <th>Ціна</th>
+            <th>Дія</th>
+            <th>Категорія</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Меню буде додаватись сюди динамічно -->
+        </tbody>
+    </table>
+</section>
+
+<section id="add-item-section">
+    <h2>Додати страву</h2>
+    <form id="add-menu-form">
+        <input type="text" id="name" placeholder="Назва" required>
+        <input type="text" id="description" placeholder="Опис" required>
+        <input type="number" id="price" placeholder="Ціна" step="0.01" required>
+        <input type="text" id="category" placeholder="Категорія" required>
+        <button type="submit">Додати</button>
+    </form>
+</section>
+
+<div class="order-filters">
+    <button id="show-active-btn">Активні</button>
+    <button id="show-archived-btn">Архів</button>
+</div>
+
+<h2>Список замовлень</h2>
+<table id="orders-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Клієнт</th>
+        <th>Номер телефону</th>
+        <th>Страви</th>
+        <th>Статус</th>
+        <th>Змінити статус</th>
+    </tr>
+    </thead>
+    <tbody id="orders-body"></tbody>
+</table>
+<script src="/scripts/admin.js"></script>
+
+</body>
+</html>

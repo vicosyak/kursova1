@@ -1,0 +1,140 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.header {
+    height: 56px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #205702;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #205702;
+    margin-top: 14px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+
+.menu-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.menu-card h3 {
+    margin-top: 0;
+    color: #205702;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.menu-card p {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.menu-section h2 {
+    margin-left: 460px;
+}
+
+#category-nav {
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+#category-nav a {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    margin-top: 232px;
+    font-size: 36px;
+    color: black;
+}
+.add-to-cart {
+    background: #FFDB7F;
+    width: 240px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.contacts {
+    padding: 30px 10px;
+    background-color: #fdf6e3;
+    border-top: 2px solid #FFDB7F;
+    font-family: 'Montserrat', sans-serif;
+    color: #205702;
+}
+
+.contacts-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.contacts-content {
+    max-width: 450px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.contacts-content a {
+    color: #69bd3d;
+    text-decoration: none;
+}
+
+.contacts-content a:hover {
+    text-decoration: underline;
+}

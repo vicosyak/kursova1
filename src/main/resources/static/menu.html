@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню — EatEasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/menu.css">
+</head>
+<body>
+<div class="header">
+    <h2 class="name"><span class="bold">Eat</span>Easy</h2>
+    <a href="menu.html" class="a">Меню</a>
+    <a href="#contacts" class="a">Контакти</a>
+    <a href="cart.html" class="a">Кошик</a>
+    <a href="main.html" class="a">На головну</a>
+</div>
+
+<div id="category-nav">
+    <div class="sidebar" id="category-sidebar">
+    </div>
+    <div class="content" id="menu-container">
+        <!-- Тут JS динамічно створить меню -->
+    </div>
+</div>
+
+<script src="/scripts/menu.js"></script>
+
+<div id="contacts" class="contacts">
+    <h2 class="contacts-title">Контакти</h2>
+    <div class="contacts-content">
+        <p><strong>Адреса:</strong> м. Київ, вул. Смачна, 12</p>
+        <p><strong>Телефон:</strong> <a href="tel:+380671234567">+380 (67) 123-45-67</a></p>
+        <p><strong>Email:</strong> <a href="mailto:support@eateasy.ua">support@eateasy.ua</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/eateasy.ua" target="_blank">@eateasy.ua</a></p>
+        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/eateasy.ua" target="_blank">EatEasy Україна</a></p>
+    </div>
+</div>
+</body>
+</html>

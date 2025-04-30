@@ -1,0 +1,176 @@
+body, head {
+    margin: 0;
+}
+
+.header {
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 16px;
+}
+
+.name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #205702;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #205702;
+    margin-top: 14px;
+}
+
+.cart-main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.cart-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.cart-item h3 {
+    margin-top: 0;
+    color: #205702;
+}
+
+.cart-item p {
+    margin: 5px 0;
+}
+
+.cart-action {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff3a3a;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    background: #e53935;
+}
+
+.total-price {
+    font-size: 24px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-btn {
+    padding: 12px 24px;
+    background-color: #FFDB7F;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    color: #333;
+}
+
+.cart-btn:hover {
+    background-color: #f8c14a;
+}
+
+.order-form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.order-form h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.order-form input {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #205702;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #184a02;
+}
+
+.contacts {
+    padding: 30px 10px;
+    background-color: #fdf6e3;
+    border-top: 2px solid #FFDB7F;
+    font-family: 'Montserrat', sans-serif;
+    color: #205702;
+}
+
+.contacts-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.contacts-content {
+    max-width: 450px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.contacts-content a {
+    color: #69bd3d;
+    text-decoration: none;
+}
+
+.contacts-content a:hover {
+    text-decoration: underline;
+}
