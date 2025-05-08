@@ -12,49 +12,52 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfig {
+public class SecurityConfig implements WebMvcConfigurer {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Вимикаємо CSRF (актуально для REST API)
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/", "/main.html", "/menu.html", "/cart.html", "/scripts/**", "/styles/**", "/image/**", "/static/**", "/favicon.ico"
+                                "/", "/main.html", "/menu.html", "/cart.html", "/scripts/**", "/styles/**",
+                                "/image/**", "/static/**", "/favicon.ico", "/error"
                         ).permitAll()
-
-                        .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll() // Меню — публічно
-                        .requestMatchers("/api/admin/**", "/admin.html", "/scripts/admin.js").hasRole("ADMIN") // Адмін
+                        .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/orders").permitAll()
-
-
+                        .requestMatchers("/api/admin/**", "/admin.html", "/scripts/admin.js").hasRole("ADMIN")
                         .anyRequest().authenticated()
-
                 )
-                .httpBasic(withDefaults()) // ✅ Вмикає Basic Auth (працює з Postman)
-                .formLogin(form -> form.disable()); // ❌ Вимикає HTML-форму входу
+                .formLogin(form -> form
+                        .loginPage("/login.html")
+                        .loginProcessingUrl("/perform_login")
+                        .defaultSuccessUrl("/admin.html", true)
+                        .permitAll()
+                );
         return http.build();
     }
 
-    // Тестові користувачі в пам'яті
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("forward:/main.html");
+    }
+
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         var user = User.withUsername("user")
                 .password(passwordEncoder.encode("userpass"))
                 .roles("USER")
                 .build();
-
         var admin = User.withUsername("admin")
-                .password(passwordEncoder.encode("adminpass"))
+                .password(passwordEncoder.encode("kursovarobota"))
                 .roles("ADMIN")
                 .build();
-
         return new InMemoryUserDetailsManager(user, admin);
     }
 

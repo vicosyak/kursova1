@@ -1,10 +1,17 @@
+function showSection(id) {
+    document.getElementById('admin-menu-section').style.display = id === 'menu' ? 'block' : 'none';
+    document.getElementById('orders-section').style.display = id === 'orders' ? 'block' : 'none';
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuTableBody = document.querySelector("#menu-table tbody");
     const form = document.getElementById("add-menu-form");
     const activeBtn = document.getElementById("show-active-btn");
     const archivedBtn = document.getElementById("show-archived-btn");
 
-    // ========== 📌 ЗАМОВЛЕННЯ ==========
+
+    // ========== ЗАМОВЛЕННЯ ==========
 
     function loadOrders(url) {
         fetch(url)

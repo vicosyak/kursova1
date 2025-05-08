@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         totalEl.textContent = `Загальна сума: ${total.toFixed(2)} грн`;
 
-        // ➡ Після повного рендеру — вішаємо обробники
         document.querySelectorAll(".remove-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 const index = parseInt(btn.dataset.index);
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCart();
     }
 
-    // --- Навішуємо обробники тільки після завантаження DOM
     document.getElementById("clear-cart-btn").addEventListener("click", clearCart);
 
     document.getElementById("submit-order-btn").addEventListener("click", () => {
@@ -75,13 +73,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const phone = document.getElementById("phone-number").value.trim();
         const items = getCart().map(item => item.name);
 
-        if (!firstName || !lastName || !phone) {
-            alert("Будь ласка, заповніть усі поля!");
+        const phoneRegex = /^\+?380\d{9}$/;
+        if (!phoneRegex.test(phone)) {
+            showNotification("Введіть коректний номер телефону у форматі +380XXXXXXXXX");
+            return;
+        }
+
+
+        if (!firstName || !address || !phone) {
+            showNotification("Будь ласка, заповніть усі поля!");
             return;
         }
 
         if (items.length === 0) {
-            alert("Кошик порожній!");
+            showNotification("Кошик порожній!");
             return;
         }
 
@@ -102,14 +107,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 return res.json();
             })
             .then(() => {
-                alert("Замовлення оформлено успішно!");
+                showNotification("Замовлення оформлено успішно!");
                 clearCart();
                 document.getElementById("first-name").value = "";
-                document.getElementById("last-name").value = "";
+                document.getElementById("address").value = "";
                 document.getElementById("phone-number").value = "";
             })
-            .catch(() => alert("Помилка при оформленні"));
+            .catch(error => {
+                console.error(error);
+                showNotification("Помилка при оформленні")
+            });
     });
 
     renderCart();
 });
+
+function showNotification(message, type = "success") {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.className = `notification show ${type}`;
+
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 3000);
+}
+

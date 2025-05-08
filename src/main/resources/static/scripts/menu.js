@@ -39,6 +39,7 @@ window.onload = () => {
                     `;
                     el.querySelector('.add-to-cart').addEventListener('click', () => {
                         addToCart(item);
+                        showNotification("Додано до кошика");
                     });
                     section.appendChild(el);
                 });
@@ -53,5 +54,15 @@ function addToCart(item) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(item);
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`Додано до кошика: ${item.name}`)
+}
+
+
+function showNotification(message, type = "success") {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.className = `notification show ${type}`;
+
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 3000);
 }

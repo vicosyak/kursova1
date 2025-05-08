@@ -31,7 +31,8 @@
     <div class="order-form">
         <input type="text" id="first-name" placeholder="Ім’я">
         <input type="text" id="address" placeholder="Адреса">
-        <input type="tel" id="phone-number" placeholder="Телефон">
+        <input type="tel" id="phone-number" placeholder="Телефон +380XXXXXXXXX">
+        <span id="phoneError" style="color:red; display:none;">Некоректний номер</span>
         <button id="submit-order-btn" class="cart-btn">Оформити замовлення</button>
     </div>
 
@@ -47,6 +48,8 @@
         <p><strong>Facebook:</strong> <a href="https://www.facebook.com/eateasy.ua" target="_blank">EatEasy Україна</a></p>
     </div>
 </div>
+
+<div id="notification" class="notification"></div>
 
 <script src="/scripts/cart.js"></script>
 

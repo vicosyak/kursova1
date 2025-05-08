@@ -138,3 +138,30 @@ body {
 .contacts-content a:hover {
     text-decoration: underline;
 }
+
+
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #323232;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    z-index: 9999;
+}
+
+.notification.show {
+    opacity: 1;
+    bottom: 50px;
+}
+.notification.success {
+    background-color: #4caf50;
+}
+.notification.error {
+    background-color: #f44336;
+}
