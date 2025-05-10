@@ -14,15 +14,15 @@ window.onload = () => {
             sidebar.innerHTML = '';
 
             Object.keys(grouped).forEach(category => {
-                const id = category.toLowerCase().replace(/\s+/g, '-'); // id типу "pizza", "hot-dishes"
+                const id = category.toLowerCase().replace(/\s+/g, '-');
 
-                // 🔹 Створюємо навігацію
+                //Навігація
                 const link = document.createElement('a');
                 link.href = `#${id}`;
                 link.textContent = category;
                 sidebar.appendChild(link);
 
-                // 🔹 Створюємо секцію меню
+                //Меню
                 const section = document.createElement('div');
                 section.className = 'menu-section';
                 section.id = id;
