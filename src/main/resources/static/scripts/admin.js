@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadOrders("/api/admin/orders/archived");
     });
 
-    // ========== 📌 МЕНЮ ==========
+    // ========== МЕНЮ ==========
 
     function fetchMenu() {
         fetch("/api/menu")
